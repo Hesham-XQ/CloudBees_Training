@@ -6,7 +6,7 @@ pipeline {
         echo 'Buzz, Bees, Buzz!'
         echo ' Bees Buzzing!'
         sh 'pwd'
-        echo 'Bees Buzzing Again'>hello-world.txt
+        sh 'echo "Bees Buzzing Again">hello-world.txt'
       }
     }
 
