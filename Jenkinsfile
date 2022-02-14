@@ -12,13 +12,7 @@ pipeline {
 
     stage(' Buzz Build Stage') {
       steps {
-        sh './jenkins/build.sh'
-      }
-    }
-
-    stage('Buzz Test') {
-      steps {
-        sh './jenkins/test-all.sh'
+        archiveArtifacts(artifacts: '*.jar', allowEmptyArchive: true, fingerprint: true)
       }
     }
 
