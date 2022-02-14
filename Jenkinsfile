@@ -12,7 +12,7 @@ pipeline {
 
     stage(' Buzz Build Stage') {
       steps {
-        archiveArtifacts(artifacts: '/*.txt', allowEmptyArchive: true, fingerprint: true)
+        archiveArtifacts(artifacts: '*.txt', allowEmptyArchive: true, fingerprint: true)
       }
     }
 
