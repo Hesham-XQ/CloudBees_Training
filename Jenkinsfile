@@ -13,6 +13,7 @@ pipeline {
     stage(' Buzz Build Stage') {
       steps {
         archiveArtifacts(artifacts: '*.txt', allowEmptyArchive: true, fingerprint: true)
+        junit(testResults: '**/surefire-reports/**/*.xml', allowEmptyResults: true)
       }
     }
 
