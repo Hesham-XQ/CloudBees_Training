@@ -6,13 +6,13 @@ pipeline {
         echo 'Buzz, Bees, Buzz!'
         echo ' Bees Buzzing!'
         sh 'pwd'
-        echo 'Bees Buzzing Again'
+        echo 'Bees Buzzing Again'>hello-world.txt
       }
     }
 
     stage(' Buzz Build Stage') {
       steps {
-        archiveArtifacts(artifacts: 'test/*.jar', allowEmptyArchive: true, fingerprint: true)
+        archiveArtifacts(artifacts: '/*.txt', allowEmptyArchive: true, fingerprint: true)
       }
     }
 
