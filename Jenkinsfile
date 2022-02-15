@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Buzz, Bees, Buzz!'
         echo ' Bees Buzzing!'
-        sh 'pwd'
+        sh 'echo I am $USER'
         sh 'echo "Bees Buzzing Again">hello-world.txt'
       }
     }
@@ -17,5 +17,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    USER = 'HEsham'
   }
 }
