@@ -15,6 +15,7 @@ pipeline {
         stage('parralel 1') {
           steps {
             echo '1'
+            error 'error exit'
           }
         }
 
