@@ -8,7 +8,7 @@ pipeline {
             echo 'Buzz, Bees, Buzz!'
             echo ' Bees Buzzing!'
             sh 'echo I am $INVOCATION_ID'
-            sh 'echo "Bees Buzzing Again">hello-world.txt'
+            sh 'echo "artifact test">hello-world.txt'
           }
         }
 
@@ -30,7 +30,6 @@ pipeline {
     stage(' Buzz Build Stage') {
       steps {
         archiveArtifacts(artifacts: '*.txt', allowEmptyArchive: true, fingerprint: true)
-        junit(testResults: '**/surefire-reports/**/*.xml', allowEmptyResults: true)
       }
     }
 
