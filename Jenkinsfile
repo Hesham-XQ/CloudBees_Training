@@ -3,6 +3,16 @@ pipeline {
   stages {
     stage('Bees Bees update') {
       parallel {
+     
+    stage ('Initialize') {
+        steps {
+            sh '''
+                echo "PATH = ${PATH}"
+                echo "M2_HOME = ${M2_HOME}"
+            '''
+        }
+    }
+
         stage('Bees Bees update') {
           steps {
             echo 'Buzz, Bees, Buzz!'
