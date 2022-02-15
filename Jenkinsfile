@@ -2,11 +2,28 @@ pipeline {
   agent any
   stages {
     stage('Bees Bees update') {
-      steps {
-        echo 'Buzz, Bees, Buzz!'
-        echo ' Bees Buzzing!'
-        sh 'echo I am $INVOCATION_ID'
-        sh 'echo "Bees Buzzing Again">hello-world.txt'
+      parallel {
+        stage('Bees Bees update') {
+          steps {
+            echo 'Buzz, Bees, Buzz!'
+            echo ' Bees Buzzing!'
+            sh 'echo I am $INVOCATION_ID'
+            sh 'echo "Bees Buzzing Again">hello-world.txt'
+          }
+        }
+
+        stage('parralel 1') {
+          steps {
+            echo '1'
+          }
+        }
+
+        stage('parallel 2') {
+          steps {
+            echo '2'
+          }
+        }
+
       }
     }
 
