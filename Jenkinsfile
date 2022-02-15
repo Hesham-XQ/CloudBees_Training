@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Buzz, Bees, Buzz!'
         echo ' Bees Buzzing!'
-        sh 'echo I am $USER'
+        sh 'echo I am $INVOCATION_ID'
         sh 'echo "Bees Buzzing Again">hello-world.txt'
       }
     }
