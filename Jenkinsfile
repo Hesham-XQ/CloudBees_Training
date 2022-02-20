@@ -1,14 +1,10 @@
 pipeline {
-  agent {
-    node {
-      label '1'
-    }
-
-  }
+  agent none
   stages {
     stage('Bees Bees update') {
       parallel {
         stage('Bees Bees update') {
+          agent any
           steps {
             echo 'Buzz, Bees, Buzz!'
             echo ' Bees Buzzing!'
