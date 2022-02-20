@@ -4,7 +4,12 @@ pipeline {
     stage('Bees Bees update') {
       parallel {
         stage('Bees Bees update') {
-          agent any
+          agent {
+            node {
+              label '1'
+            }
+
+          }
           steps {
             echo 'Buzz, Bees, Buzz!'
             echo ' Bees Buzzing!'
