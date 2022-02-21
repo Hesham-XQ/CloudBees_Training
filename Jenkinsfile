@@ -1,22 +1,17 @@
 pipeline {
   agent any
- 
-    tools {
-        maven 'apache-maven-3.8.4'
-        
-    }
   stages {
     stage('Bees Bees update') {
       parallel {
-     
-    stage ('Initialize') {
-        steps {
+        stage('Initialize') {
+          steps {
             sh '''
                 echo "PATH = ${PATH}"
                 echo "M2_HOME = ${M2_HOME}"
             '''
+            stash(name: 'bam', includes: '*.txt')
+          }
         }
-    }
 
         stage('Bees Bees update') {
           steps {
@@ -30,7 +25,6 @@ pipeline {
         stage('parralel 1') {
           steps {
             echo '1'
-            
           }
         }
 
@@ -47,9 +41,13 @@ pipeline {
       steps {
         archiveArtifacts(artifacts: '*.txt', allowEmptyArchive: true, fingerprint: true)
         junit(testResults: '**/surefire-reports/**/*.xml', allowEmptyResults: true)
+        unstash 'bam'
       }
     }
 
+  }
+  tools {
+    maven 'apache-maven-3.8.4'
   }
   environment {
     USER = 'HEsham'
