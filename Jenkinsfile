@@ -52,7 +52,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        sh 'deploy.sh'
+        sh 'bash d.sh'
       }
     }
 
