@@ -50,6 +50,12 @@ pipeline {
       }
     }
 
+    stage('Deployment') {
+      steps {
+        sh 'deploy.sh'
+      }
+    }
+
   }
   tools {
     maven 'apache-maven-3.8.4'
