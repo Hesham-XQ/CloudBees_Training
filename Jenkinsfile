@@ -36,13 +36,6 @@ pipeline {
       }
     }
 
-    stage(' Buzz Build Stage') {
-      steps {
-        archiveArtifacts(artifacts: '*.txt', allowEmptyArchive: true, fingerprint: true)
-        junit(testResults: '**/surefire-reports/**/*.xml', allowEmptyResults: true)
-      }
-    }
-
     stage('confirmation!!') {
       steps {
         input(message: 'confirmed ??', ok: 'yes, let\'s do it')
@@ -51,6 +44,7 @@ pipeline {
     }
 
     stage('Deployment') {
+      agent any
       steps {
         sh 'bash d.sh'
       }
