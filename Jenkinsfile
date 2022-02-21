@@ -46,6 +46,7 @@ pipeline {
     stage('confirmation!!') {
       steps {
         input(message: 'confirmed ??', ok: 'yes, let\'s do it')
+        echo 'WHOOOoooo !!!!'
       }
     }
 
