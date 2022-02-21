@@ -44,7 +44,6 @@ pipeline {
     }
 
     stage('Deployment') {
-      agent any
       steps {
         sh 'bash d.sh'
       }
