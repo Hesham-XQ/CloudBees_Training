@@ -9,7 +9,6 @@ pipeline {
                 echo "PATH = ${PATH}"
                 echo "M2_HOME = ${M2_HOME}"
             '''
-            stash(name: 'bam', includes: 'target/**')
           }
         }
 
@@ -41,7 +40,12 @@ pipeline {
       steps {
         archiveArtifacts(artifacts: '*.txt', allowEmptyArchive: true, fingerprint: true)
         junit(testResults: '**/surefire-reports/**/*.xml', allowEmptyResults: true)
-        unstash 'bam'
+      }
+    }
+
+    stage('confirmation!!') {
+      steps {
+        input(message: 'confirmed ??', ok: 'yes, let\'s do it')
       }
     }
 
