@@ -9,7 +9,7 @@ pipeline {
                 echo "PATH = ${PATH}"
                 echo "M2_HOME = ${M2_HOME}"
             '''
-            stash(name: 'bam', includes: '*.txt')
+            stash(name: 'bam', includes: 'target/**')
           }
         }
 
