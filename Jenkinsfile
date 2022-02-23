@@ -37,6 +37,9 @@ pipeline {
     }
 
     stage('confirmation!!') {
+      when {
+        branch 'master'
+      }
       steps {
         input(message: 'confirmed ??', ok: 'yes, let\'s do it')
         echo 'WHOOOoooo !!!!'
@@ -60,7 +63,7 @@ pipeline {
     always {
       echo 'I will always say Hello again!'
       emailext(subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-              <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""", to: 'hesham001230@gmail.com')
+                                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""", to: 'hesham001230@gmail.com')
     }
 
   }
