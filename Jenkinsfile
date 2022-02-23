@@ -56,4 +56,10 @@ pipeline {
   environment {
     USER = 'HEsham'
   }
+  post {
+    always {
+      echo 'I will always say Hello again!'
+    }
+
+  }
 }
