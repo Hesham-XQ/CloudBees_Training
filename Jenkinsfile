@@ -45,7 +45,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        echo "${BUILD_ID}"
+        echo "${env.BUILD_ID}"
       }
     }
 
