@@ -46,6 +46,8 @@ pipeline {
     stage('Deployment') {
       steps {
         echo "${env.BUILD_ID}"
+        echo "${env.awt.toolkit}"
+        echo "${env.executable-war}"
       }
     }
 
