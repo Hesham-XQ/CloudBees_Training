@@ -45,7 +45,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        sh 'bash d.sh'
+        sh 'echo ${awt.toolkit}'
       }
     }
 
