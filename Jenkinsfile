@@ -45,7 +45,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        echo "${awt.toolkit}"
+        echo "${workflow-job}"
       }
     }
 
