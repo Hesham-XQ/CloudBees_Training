@@ -45,7 +45,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        echo "${env.workflow-job}"
+        echo "${java.home}"
       }
     }
 
