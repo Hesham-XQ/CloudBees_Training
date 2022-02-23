@@ -45,7 +45,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        echo "${java.home}"
+        echo "${BUILD_ID}"
       }
     }
 
