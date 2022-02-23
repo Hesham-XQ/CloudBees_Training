@@ -46,7 +46,6 @@ pipeline {
     stage('Deployment') {
       steps {
         echo "${env.BUILD_ID}"
-        echo "${env.executable-war}"
       }
     }
 
@@ -60,6 +59,8 @@ pipeline {
   post {
     always {
       echo 'I will always say Hello again!'
+      emailext(subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+              <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""", to: 'hesham001230@gmail.com')
     }
 
   }
