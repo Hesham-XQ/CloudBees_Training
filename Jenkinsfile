@@ -45,7 +45,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        echo "${workflow-job}"
+        echo "${env.workflow-job}"
       }
     }
 
